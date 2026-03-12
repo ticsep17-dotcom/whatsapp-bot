@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
+@app.route("/", methods=["GET"])
+def home():
+    
+    return "Bot activo", 200
 @app.route("/webhook", methods=["POST"])
 def webhook():
     incoming_msg = request.form.get("Body", "")
