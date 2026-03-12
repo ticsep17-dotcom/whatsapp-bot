@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request
 
 from twilio.twiml.messaging_response import MessagingResponse
@@ -6,7 +7,7 @@ from groq import Groq
 
 app = Flask(__name__)
 
-groq_client = Groq(api_key="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")
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 @app.route("/webhook", methods=["POST"])
 
